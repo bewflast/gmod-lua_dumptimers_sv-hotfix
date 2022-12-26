@@ -1,0 +1,3 @@
+[submodule "gmod-interfaces-book"]
+	path = gmod-interfaces-book
+	url = https://github.com/bewflast/gmod-interfaces-book.git
