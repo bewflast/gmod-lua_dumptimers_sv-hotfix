@@ -5,22 +5,21 @@
 
 # include   <cstdint>
 
+# ifdef __linux__
+#  define __thiscall
+# endif
+
 class ConCommandBase;
 
 class ICvar
 {
-    #ifdef  _WIN32
-        using FindCommandBaseFn_ptr         = ConCommandBase*   ( __thiscall* )( void* , const char*      );
-        using UnregisterConCommandFn_ptr    = void              ( __thiscall* )( void* , ConCommandBase*  );
-    #else
-        using FindCommandBaseFn_ptr         = ConCommandBase*   (*)( void* , const char*      );
-        using UnregisterConCommandFn_ptr    = void              (*)( void* , ConCommandBase*  );
-    #endif
+
+    using FindCommandBaseFn_ptr         = ConCommandBase*   ( __thiscall* )( void* , const char*      );
+    using UnregisterConCommandFn_ptr    = void              ( __thiscall* )( void* , ConCommandBase*  );
+
 
 public:
     void            UnregisterConCommand    ( ConCommandBase *pCommandBase );
     ConCommandBase* FindCommandBase         ( const char *name );
 
 };
-
-#endif
