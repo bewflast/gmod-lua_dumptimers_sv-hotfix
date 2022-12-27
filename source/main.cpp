@@ -3,7 +3,6 @@
 
 #include "SDK/icvar.hpp"
 
-#include <iostream>
 
 GMOD_MODULE_OPEN()
 {
