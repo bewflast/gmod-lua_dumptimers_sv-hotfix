@@ -24,6 +24,7 @@ add_subdirectory(gmod-interfaces-book)
 
 set(    SOURCES
                 source/main.cpp
+                source/SDK/icvar.cpp
 )
 
 add_library(dumptimers_fix SHARED ${SOURCES})
