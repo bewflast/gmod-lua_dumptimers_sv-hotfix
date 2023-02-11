@@ -6,19 +6,12 @@
 # include   <cstdint>
 
 # ifdef __linux__
-
 #  define __thiscall
-#  define ICVAR_INTERFACE_VERSION "VEngineCvar004"
-#  define FIND_COMMAND_BASE_INDEX 10
-#  define UNREGISTER_CON_COMMAND_INDEX 7
-
-# else
-
-#  define ICVAR_INTERFACE_VERSION "VEngineCvar007"
-#  define FIND_COMMAND_BASE_INDEX 14
-#  define UNREGISTER_CON_COMMAND_INDEX 11
-
 # endif
+
+#  define ICVAR_INTERFACE_VERSION       ((sizeof(void*) == 8) ? "VEngineCvar007"    : "VEngineCvar004"  )
+#  define FIND_COMMAND_BASE_INDEX	    ((sizeof(void*) == 8) ? 14 		            : 10		        )
+#  define UNREGISTER_CON_COMMAND_INDEX 	((sizeof(void*) == 8) ? 11 		            : 7		            )
 
 class ConCommandBase;
 
