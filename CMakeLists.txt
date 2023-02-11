@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 project(dumptimers_fix LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_CONFIGURATION_TYPES Release Debug)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/bin/release)
@@ -15,8 +16,10 @@ function(set_gmod_suffix_prefix library)
         SET_TARGET_PROPERTIES(${library} PROPERTIES PREFIX "gmsv_")
         if(UNIX)
                 SET_TARGET_PROPERTIES(${library} PROPERTIES SUFFIX "_linux.dll")
-        elseif(WIN32)
+        elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
                 SET_TARGET_PROPERTIES(${library} PROPERTIES SUFFIX "_win32.dll")
+	elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
+		SET_TARGET_PROPERTIES(${library} PROPERTIES SUFFIX "_win64.dll")
         endif()
 endfunction()
 
