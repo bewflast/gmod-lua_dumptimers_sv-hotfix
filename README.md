@@ -13,7 +13,7 @@ If you wanna compile it by yourself, do some steps:
 
 1) Clone: `git clone --recursive https://github.com/bewflast/gmod-lua_dumptimers_sv-hotfix.git`
 
-2) Generate building system's files: (Linux)`cmake -B build` (Windows)`cmake -B build -A Win32`
+2) Generate building system's files: (Linux)`cmake -B build` (Windows)`cmake -B build -A Win32` (don't pass `-A Win32` flag if you are building for x64 win srcds)
 
 3) Compile: (Linux)`cmake --build build`    (Windows)`cmake --build --config Release` (or --config Debug)
 
