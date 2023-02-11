@@ -6,7 +6,18 @@
 # include   <cstdint>
 
 # ifdef __linux__
+
 #  define __thiscall
+#  define ICVAR_INTERFACE_VERSION "VEngineCvar004"
+#  define FIND_COMMAND_BASE_INDEX 10
+#  define UNREGISTER_CON_COMMAND_INDEX 7
+
+# else
+
+#  define ICVAR_INTERFACE_VERSION "VEngineCvar007"
+#  define FIND_COMMAND_BASE_INDEX 14
+#  define UNREGISTER_CON_COMMAND_INDEX 11
+
 # endif
 
 class ConCommandBase;
@@ -23,3 +34,5 @@ public:
     ConCommandBase* FindCommandBase         ( const char *name );
 
 };
+
+#endif

@@ -11,7 +11,7 @@ GMOD_MODULE_OPEN()
     IFacesBook      interfacesList;
     ConCommandBase* lua_dumptimers_sv (nullptr);
 
-    icvarInterface = interfacesList.getInterface<ICvar>("VEngineCvar004");
+    icvarInterface = interfacesList.getInterface<ICvar>(ICVAR_INTERFACE_VERSION);
     if (!icvarInterface)
         LUA->ThrowError("Unable to get ICvar interface!");
 
