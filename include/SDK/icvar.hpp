@@ -9,7 +9,6 @@
 #  define __thiscall
 # endif
 
-#  define ICVAR_INTERFACE_VERSION       ((sizeof(void*) == 8) ? "VEngineCvar007"    : "VEngineCvar004"  )
 #  define FIND_COMMAND_BASE_INDEX	    ((sizeof(void*) == 8) ? 14 		            : 10		        )
 #  define UNREGISTER_CON_COMMAND_INDEX 	((sizeof(void*) == 8) ? 11 		            : 7		            )
 

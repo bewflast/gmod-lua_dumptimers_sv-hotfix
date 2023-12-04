@@ -1,5 +1,5 @@
 #include <GarrysMod/Lua/Interface.h>
-#include <IFacesBook.hpp>
+#include <source-engine-interfaces-book/IFacesBook.hpp>
 
 #include "SDK/icvar.hpp"
 
@@ -7,17 +7,15 @@
 GMOD_MODULE_OPEN()
 {
 
-    ICvar*          icvarInterface    (nullptr);
-    IFacesBook      interfacesList;
-    ConCommandBase* lua_dumptimers_sv (nullptr);
-
-    icvarInterface = interfacesList.getInterface<ICvar>(ICVAR_INTERFACE_VERSION);
-    if (!icvarInterface)
+    auto* icvarInterface = static_cast<ICvar*>(IFacesBook::getInterface("ICvar"));
+    if (not icvarInterface) {
         LUA->ThrowError("Unable to get ICvar interface!");
+	}
 
-    lua_dumptimers_sv   = icvarInterface->FindCommandBase("lua_dumptimers_sv");
-    if (!lua_dumptimers_sv)
+	auto* lua_dumptimers_sv   = icvarInterface->FindCommandBase("lua_dumptimers_sv");
+    if (not lua_dumptimers_sv) {
         LUA->ThrowError("Unable to get lua_dumptimers_sv ConCMDBase!");
+	}
 
     icvarInterface->UnregisterConCommand(lua_dumptimers_sv);
     
